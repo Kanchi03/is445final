@@ -1,0 +1,25 @@
+<%- include('header') %>
+
+<h2>Import Vehicle Data</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="file" class="form-label">Choose TXT Files:</label>
+    <input type="file" id="file" name="file" accept=".txt" class="form-control" multiple required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+<p id="statusMsg" class="fw-bold"></p>
+
+<p><a href="/" class="btn btn-secondary">Back to Vehicle List</a></p>
+
+<%- include('footer') %>
+
+<script>
+  document.querySelector('form').addEventListener('submit', function() {
+    document.getElementById('statusMsg').textContent = "Processing file... Please wait.";
+  });
+</script>
+

@@ -1,0 +1,69 @@
+<%- include('header') %>
+
+<h2>Calculate Sum of Series</h2>
+
+<form id="sumForm">
+    <div class="mb-3">
+        <label for="start" class="form-label">Starting Number:</label>
+        <input type="number" id="start" name="start" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="end" class="form-label">Ending Number:</label>
+        <input type="number" id="end" name="end" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="divisor" class="form-label">Divisible By:</label>
+        <input type="number" id="divisor" name="divisor" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate Sum</button>
+</form>
+
+<p id="errorMsg" class="error text-danger fw-bold"></p>
+<p id="resultMsg" class="result fw-bold"></p>
+
+<p><a href="/" class="btn btn-secondary">Back to Home</a></p>
+
+<%- include('footer') %>
+
+<script>
+    document.getElementById("sumForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const start = parseInt(document.getElementById("start").value);
+        const end = parseInt(document.getElementById("end").value);
+        const divisor = parseInt(document.getElementById("divisor").value);
+        const errorMsg = document.getElementById("errorMsg");
+        const resultMsg = document.getElementById("resultMsg");
+
+        // Reset messages
+        errorMsg.textContent = "";
+        resultMsg.textContent = "";
+
+        if (isNaN(start) || isNaN(end) || isNaN(divisor)) {
+            errorMsg.textContent = "All fields must be filled.";
+            return;
+        }
+
+        if (start >= end) {
+            errorMsg.textContent = "Starting number must be less than ending number.";
+            return;
+        }
+
+        // Function to calculate the sum of numbers divisible by divisor
+        function calculateSum(start, end, divisor) {
+            let sum = 0;
+            for (let i = start; i <= end; i++) {
+                if (i % divisor === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+
+        const sum = calculateSum(start, end, divisor);
+        resultMsg.textContent = `The sum is ${sum}`;
+    });
+</script>

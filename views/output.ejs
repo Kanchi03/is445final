@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+<div class="container mt-4">
+  <h1 class="text-success mb-4">Vehicle Added Successfully!</h1>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr><th>Vehicle ID (vid)</th><td><%= vehicle.vid %></td></tr>
+      <tr><th>VIN</th><td><%= vehicle.vin %></td></tr>
+      <tr><th>City</th><td><%= vehicle.city %></td></tr>
+      <tr><th>Postal Code</th><td><%= vehicle.postal_code %></td></tr>
+      <tr><th>Model Year</th><td><%= vehicle.model_year %></td></tr>
+      <tr><th>Make</th><td><%= vehicle.make %></td></tr>
+      <tr><th>Model</th><td><%= vehicle.model %></td></tr>
+      <tr><th>EV Type</th><td><%= vehicle.ev_type %></td></tr>
+      <tr><th>Electric Range</th><td><%= vehicle.electric_range %></td></tr>
+      <tr><th>Base MSRP</th><td><%= vehicle.base_msrp %></td></tr>
+      <tr><th>Purchase Date</th><td><%= vehicle.purchase_date ? vehicle.purchase_date.toISOString().substring(0,10) : '' %></td></tr>
+    </tbody>
+  </table>
+
+  <a href="/add" class="btn btn-primary me-2">Add Another Vehicle</a>
+  <a href="/" class="btn btn-secondary">Back to Vehicle List</a>
+</div>
+
+<%- include('footer') %>

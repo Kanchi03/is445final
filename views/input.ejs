@@ -1,0 +1,77 @@
+<%- include('header') %>
+
+<h1 class="mt-4 mb-3">Add a New Electric Vehicle</h1>
+
+<form method="POST" action="/add-vehicle" class="mb-5">
+  <div class="mb-3">
+    <label for="vid" class="form-label">Vehicle ID (vid):</label>
+    <input type="text" id="vid" name="vid" class="form-control" required
+      value="<%= typeof vid !== 'undefined' ? vid : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="vin" class="form-label">VIN:</label>
+    <input type="text" id="vin" name="vin" class="form-control" required
+      value="<%= typeof vin !== 'undefined' ? vin : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">City:</label>
+    <input type="text" id="city" name="city" class="form-control"
+      value="<%= typeof city !== 'undefined' ? city : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="postal_code" class="form-label">Postal Code:</label>
+    <input type="text" id="postal_code" name="postal_code" class="form-control" maxlength="5"
+      value="<%= typeof postal_code !== 'undefined' ? postal_code : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="model_year" class="form-label">Model Year:</label>
+    <input type="number" id="model_year" name="model_year" class="form-control" min="1900" max="2099" step="1"
+      value="<%= typeof model_year !== 'undefined' ? model_year : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="make" class="form-label">Make:</label>
+    <input type="text" id="make" name="make" class="form-control"
+      value="<%= typeof make !== 'undefined' ? make : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="model" class="form-label">Model:</label>
+    <input type="text" id="model" name="model" class="form-control"
+      value="<%= typeof model !== 'undefined' ? model : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="ev_type" class="form-label">EV Type:</label>
+    <input type="text" id="ev_type" name="ev_type" class="form-control"
+      value="<%= typeof ev_type !== 'undefined' ? ev_type : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="electric_range" class="form-label">Electric Range (miles):</label>
+    <input type="number" id="electric_range" name="electric_range" class="form-control" min="0"
+      value="<%= typeof electric_range !== 'undefined' ? electric_range : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="base_msrp" class="form-label">Base MSRP ($):</label>
+    <input type="number" id="base_msrp" name="base_msrp" class="form-control" min="0"
+      value="<%= typeof base_msrp !== 'undefined' ? base_msrp : '' %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="purchase_date" class="form-label">Purchase Date:</label>
+    <input type="date" id="purchase_date" name="purchase_date" class="form-control"
+      value="<%= typeof purchase_date !== 'undefined' ? purchase_date : '' %>">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Vehicle</button>
+</form>
+
+<p><a href="/" class="btn btn-secondary">Back to Vehicle List</a></p>
+
+<%- include('footer') %>

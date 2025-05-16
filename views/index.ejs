@@ -1,0 +1,33 @@
+
+<h1>Electric Vehicles</h1>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>VID</th><th>VIN</th><th>City</th><th>Postal Code</th><th>Year</th><th>Make</th><th>Model</th>
+      <th>Type</th><th>Range</th><th>MSRP</th><th>Purchase Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% vehicles.forEach(vehicle => { %>
+      <tr>
+        <td><%= vehicle.vid %></td>
+        <td><%= vehicle.vin %></td>
+        <td><%= vehicle.city %></td>
+        <td><%= vehicle.postal_code %></td>
+        <td><%= vehicle.model_year %></td>
+        <td><%= vehicle.make %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.ev_type %></td>
+        <td><%= vehicle.electric_range %></td>
+        <td><%= vehicle.base_msrp %></td>
+        <td><%= vehicle.purchase_date ? vehicle.purchase_date.toISOString().substring(0, 10) : '' %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<p><a href="/import">Import Vehicle</a></p>
+
+<%- include('footer') %>
+
